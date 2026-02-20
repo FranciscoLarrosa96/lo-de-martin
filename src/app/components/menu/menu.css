@@ -157,3 +157,9 @@
     background-attachment: scroll;
   }
 }
+
+.menu-transparente-bg{
+  background-color: #fff3;
+  border-radius: 8px;
+  padding: 7px;
+}
