@@ -1,9 +1,9 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   OnDestroy,
   signal,
+  afterNextRender,
 } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import GLightbox from 'glightbox';
@@ -17,32 +17,58 @@ interface GalleryImage {
   selector: 'app-about',
   imports: [NgOptimizedImage],
   templateUrl: './about.html',
-  styleUrl: './about.css',
+  styleUrls: ['./about.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AboutComponent implements AfterViewInit, OnDestroy {
+export class AboutComponent implements OnDestroy {
   private glInstance: ReturnType<typeof GLightbox> | null = null;
 
   protected currentIndex = signal(0);
-
-  protected readonly carouselImages: GalleryImage[] = [
-    { src: 'assets/img/ldm-desk-2.avif', alt: 'Platos del restaurante Lo de Martín' },
-    { src: 'assets/img/ldm-desk-3.avif', alt: 'Ambiente del restaurante Lo de Martín' },
-    { src: 'assets/img/ldm-desk-4.avif', alt: 'Cocina auténtica en Lo de Martín' },
-    { src: 'assets/img/ldm-desk-5.avif', alt: 'Experiencia gastronómica en Lo de Martín' },
-    { src: 'assets/img/ldm-desk-6.avif', alt: 'Sabores únicos en Lo de Martín' },
+  protected readonly isMobile = signal(false);
+  protected carouselImages = signal<GalleryImage[]>([]);
+  protected readonly carouselImagesDesktop: GalleryImage[] = [
+    { src: 'assets/img/ldm-desk-2.avif', alt: 'Ambiente del restaurante Lo de Martín' },
+    { src: 'assets/img/ldm-desk-3.avif', alt: 'Cocina auténtica en Lo de Martín' },
+    { src: 'assets/img/ldm-desk-4.avif', alt: 'Experiencia gastronómica en Lo de Martín' },
+    { src: 'assets/img/ldm-desk-5.avif', alt: 'Sabores únicos en Lo de Martín' },
+    { src: 'assets/img/ldm-desk-6.avif', alt: 'Restaurante Lo de Martín en su máxima expresión' },
+    { src: 'assets/img/ldm-desk-7.avif', alt: 'Platos deliciosos en Lo de Martín' },
+    { src: 'assets/img/ldm-desk-8.avif', alt: 'Ambiente acogedor en Lo de Martín' },
+    { src: 'assets/img/ldm-desk-9.avif', alt: 'Cocina de calidad en Lo de Martín' },
+    { src: 'assets/img/ldm-desk-10.avif', alt: 'Experiencia culinaria en Lo de Martín' },
+  ];
+  protected readonly carouselImagesMobile: GalleryImage[] = [
+    { src: 'assets/img/ldm-mob-2.avif', alt: 'Ambiente del restaurante Lo de Martín' },
+    { src: 'assets/img/ldm-mob-3.avif', alt: 'Cocina auténtica en Lo de Martín' },
+    { src: 'assets/img/ldm-mob-4.avif', alt: 'Experiencia gastronómica en Lo de Martín' },
+    { src: 'assets/img/ldm-mob-5.avif', alt: 'Sabores únicos en Lo de Martín' },
+    { src: 'assets/img/ldm-mob-6.avif', alt: 'Restaurante Lo de Martín en su máxima expresión' },
+    { src: 'assets/img/ldm-mob-7.avif', alt: 'Platos deliciosos en Lo de Martín' },
+    { src: 'assets/img/ldm-mob-8.avif', alt: 'Platos deliciosos en Lo de Martín' },
+    { src: 'assets/img/ldm-mob-9.avif', alt: 'Ambiente acogedor en Lo de Martín' },
+    { src: 'assets/img/ldm-mob-10.avif', alt: 'Experiencia culinaria en Lo de Martín' },
   ];
 
-  ngAfterViewInit(): void {
-    this.glInstance = GLightbox({
-      elements: this.carouselImages.map((img) => ({ href: img.src, alt: img.alt, type: 'image' })),
-      loop: true,
-      touchNavigation: true,
-      keyboardNavigation: true,
-      openEffect: 'fade',
-      closeEffect: 'fade',
-      slideEffect: 'slide',
-    } as Parameters<typeof GLightbox>[0]);
+  constructor() {
+    afterNextRender(() => {
+      this.isMobile.set(window.innerWidth < 768);
+      this.carouselImages().push(
+        ...(this.isMobile() ? this.carouselImagesMobile : this.carouselImagesDesktop),
+      );
+      this.glInstance = GLightbox({
+        elements: this.carouselImages().map((img) => ({
+          href: img.src,
+          alt: img.alt,
+          type: 'image',
+        })),
+        loop: true,
+        touchNavigation: true,
+        keyboardNavigation: true,
+        openEffect: 'fade',
+        closeEffect: 'fade',
+        slideEffect: 'slide',
+      } as Parameters<typeof GLightbox>[0]);
+    });
   }
 
   ngOnDestroy(): void {
@@ -56,12 +82,12 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
 
   protected prev(): void {
     this.currentIndex.update(
-      (i) => (i - 1 + this.carouselImages.length) % this.carouselImages.length,
+      (i) => (i - 1 + this.carouselImages().length) % this.carouselImages().length,
     );
   }
 
   protected next(): void {
-    this.currentIndex.update((i) => (i + 1) % this.carouselImages.length);
+    this.currentIndex.update((i) => (i + 1) % this.carouselImages().length);
   }
 
   protected setIndex(i: number): void {
