@@ -1,0 +1,45 @@
+<section id="servicios" class="services-section" aria-label="Servicios">
+  <div class="services-section__overlay" aria-hidden="true"></div>
+
+  <div class="services-inner">
+
+    <!-- Header -->
+    <div class="services-header" data-aos="fade-up">
+      <span class="section-label">Servicios</span>
+      <h2 class="section-title" style="color:#fff">Qué Podemos Hacer por Vos</h2>
+      <p class="services-header__subtitle">
+        Experiencias gastronómicas auténticas más allá del restaurante.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="services-cards" role="list">
+      @for (service of services; track service.title; let i = $index) {
+        <article
+          class="service-card"
+          role="listitem"
+          [attr.data-aos]="'fade-up'"
+          [attr.data-aos-delay]="i * 150"
+          [attr.aria-label]="service.title"
+        >
+          <!-- Front face (visible by default) -->
+          <div class="service-card__front" aria-hidden="false">
+            <div class="service-card__icon-wrap" aria-hidden="true">
+              <i [class]="service.icon"></i>
+            </div>
+            <h3 class="service-card__title">{{ service.title }}</h3>
+            <p class="service-card__tagline">{{ service.tagline }}</p>
+            <span class="service-card__btn" aria-hidden="true">Saber más</span>
+          </div>
+
+          <!-- Back face (revealed on hover) -->
+          <div class="service-card__back">
+            <h3 class="service-card__back-title">{{ service.title }}</h3>
+            <p class="service-card__back-desc">{{ service.description }}</p>
+          </div>
+        </article>
+      }
+    </div>
+
+  </div>
+</section>

@@ -1,24 +1,35 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ChangeDetectionStrategy, Component, AfterViewInit } from '@angular/core';
 import AOS from 'aos';
+import { NavbarComponent } from './components/navbar/navbar';
+import { HeroComponent } from './components/hero/hero';
+import { AboutComponent } from './components/about/about';
+import { MenuComponent } from './components/menu/menu';
+import { ServicesComponent } from './components/services/services';
+import { ContactComponent } from './components/contact/contact';
+import { FooterComponent } from './components/footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [
+    NavbarComponent,
+    HeroComponent,
+    AboutComponent,
+    MenuComponent,
+    ServicesComponent,
+    ContactComponent,
+    FooterComponent,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class App {
-  protected readonly title = signal('lo-de-martin');
-
-  /**
-   * Inicializa la librería AOS para animaciones al hacer scroll. Configura la duración, tipo de easing y si las animaciones se repiten o no.
-   */
-  private initAOS(): void {
+export class App implements AfterViewInit {
+  ngAfterViewInit(): void {
     AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      once: false,
+      duration: 900,
+      easing: 'ease-out-quad',
+      once: true,
+      offset: 80,
     });
   }
 }

@@ -19,12 +19,17 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
+              "src/favicon.ico",
+              "src/assets",
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/app/assets",
+                "output": "assets"
               }
             ],
             "styles": [
+              "node_modules/aos/dist/aos.css",
+              "node_modules/lightgallery/css/lightgallery-bundle.min.css",
               "src/styles.css"
             ]
           },
@@ -38,8 +43,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "8kB",
+                  "maximumError": "16kB"
                 }
               ],
               "outputHashing": "all"

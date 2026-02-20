@@ -1,0 +1,177 @@
+<section id="contacto" class="contact-section" aria-label="Contacto y reservas">
+
+  <div class="contact-inner">
+
+    <!-- ── Left column: info ──────────────────────────────────────── -->
+    <div class="contact-info" data-aos="fade-right">
+
+      <p class="contact-info__eyebrow">Reservas</p>
+      <h2 class="contact-info__title">Aseguré su Mesa</h2>
+
+      <!-- Hours -->
+      <div class="contact-info__block">
+        <h3 class="contact-info__block-label">Horarios de atención</h3>
+        <ul class="hours-list" role="list">
+          @for (h of hours; track h.days) {
+            <li class="hours-item" [class.hours-item--closed]="h.time === 'Cerrado'">
+              <span class="hours-item__day">{{ h.days }}</span>
+              <span class="hours-item__time">{{ h.time }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Address -->
+      <div class="contact-info__block">
+        <h3 class="contact-info__block-label">Ubicación</h3>
+        <address class="contact-info__address">
+          Las Heras 560, Tandil<br />
+          Provincia de Buenos Aires, Argentina
+        </address>
+      </div>
+
+      <!-- Phone -->
+      <div class="contact-info__block">
+        <a href="tel:+5492494123456" class="contact-info__phone">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          T: +54 249 412-3456
+        </a>
+      </div>
+
+    </div>
+
+    <!-- ── Right column: form ─────────────────────────────────────── -->
+    <div class="contact-form-wrap" data-aos="fade-left">
+
+      @if (submitSuccess()) {
+        <div class="form-success" role="alert">
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          <p>¡Solicitud enviada! Nos comunicaremos a la brevedad para confirmar su reserva.</p>
+        </div>
+      } @else {
+        <form
+          [formGroup]="form"
+          (ngSubmit)="onSubmit()"
+          class="contact-form"
+          novalidate
+          aria-label="Formulario de reserva"
+        >
+
+          <div class="form-row">
+            <!-- Full name -->
+            <div class="form-field">
+              <label for="fullName" class="form-label">Nombre Completo</label>
+              <input
+                id="fullName"
+                type="text"
+                formControlName="fullName"
+                class="form-input"
+                [class.form-input--error]="submitted() && fc.fullName.invalid"
+                placeholder="Juan Pérez"
+                autocomplete="name"
+                [attr.aria-invalid]="submitted() && fc.fullName.invalid ? 'true' : null"
+                aria-describedby="fullNameErr"
+              />
+              @if (submitted() && fc.fullName.invalid) {
+                <span id="fullNameErr" class="form-error" role="alert">
+                  Ingresá tu nombre completo.
+                </span>
+              }
+            </div>
+
+            <!-- Email -->
+            <div class="form-field">
+              <label for="email" class="form-label">Email</label>
+              <input
+                id="email"
+                type="email"
+                formControlName="email"
+                class="form-input"
+                [class.form-input--error]="submitted() && fc.email.invalid"
+                placeholder="juan@ejemplo.com"
+                autocomplete="email"
+                [attr.aria-invalid]="submitted() && fc.email.invalid ? 'true' : null"
+                aria-describedby="emailErr"
+              />
+              @if (submitted() && fc.email.invalid) {
+                <span id="emailErr" class="form-error" role="alert">
+                  Ingresá un email válido.
+                </span>
+              }
+            </div>
+          </div>
+
+          <div class="form-row">
+            <!-- Date -->
+            <div class="form-field">
+              <label for="date" class="form-label">Fecha</label>
+              <input
+                id="date"
+                type="date"
+                formControlName="date"
+                class="form-input"
+                [class.form-input--error]="submitted() && fc.date.invalid"
+                [attr.aria-invalid]="submitted() && fc.date.invalid ? 'true' : null"
+                aria-describedby="dateErr"
+              />
+              @if (submitted() && fc.date.invalid) {
+                <span id="dateErr" class="form-error" role="alert">
+                  Seleccioná una fecha.
+                </span>
+              }
+            </div>
+
+            <!-- Guests -->
+            <div class="form-field">
+              <label for="guests" class="form-label">Comensales</label>
+              <select
+                id="guests"
+                formControlName="guests"
+                class="form-input form-select"
+                aria-label="Número de comensales"
+              >
+                @for (n of guestOptions; track n) {
+                  <option [value]="n">{{ n }} {{ n === 1 ? 'Persona' : 'Personas' }}</option>
+                }
+              </select>
+            </div>
+          </div>
+
+          <!-- Special requirements -->
+          <div class="form-field">
+            <label for="requirements" class="form-label">Requerimientos Especiales</label>
+            <textarea
+              id="requirements"
+              formControlName="requirements"
+              class="form-input form-textarea"
+              placeholder="Alergias, celebraciones, silla de bebé, etc."
+              rows="3"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">
+            Confirmar Solicitud
+          </button>
+
+        </form>
+      }
+
+    </div>
+
+  </div>
+
+  <!-- ── Map ────────────────────────────────────────────────────────── -->
+  <div class="map-container" data-aos="fade-up" data-aos-delay="100">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12692.140711742251!2d-59.145739!3d-37.3179944!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95911f85ad4ea001%3A0x13e054d12fef1237!2sLo%20de%20Mart%C3%ADn!5e0!3m2!1ses!2sar!4v1771554463120!5m2!1ses!2sar"
+      width="100%"
+      height="420"
+      style="border:0; display:block;"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Ubicación de Lo de Martín en Tandil, Buenos Aires"
+    ></iframe>
+  </div>
+
+</section>

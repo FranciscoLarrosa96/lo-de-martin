@@ -1,0 +1,124 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-image: url('/assets/img/hero-img.avif');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(7, 7, 9, 0.65) 0%,
+    rgba(60, 29, 51, 0.50) 50%,
+    rgba(7, 7, 9, 0.72) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+  max-width: 700px;
+  width: 100%;
+}
+
+.hero__welcome {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: #DDD4CD;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+}
+
+.hero__title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1;
+  margin: 0 0 1rem;
+}
+
+.hero__divider {
+  width: 60px;
+  height: 3px;
+  background-color: #3C1D33;
+  margin: 0.75rem auto 1.25rem;
+  border-radius: 2px;
+}
+
+.hero__subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: #DDD4CD;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+}
+
+.hero__cta {
+  display: inline-block;
+  background-color: #3C1D33;
+  color: #DDD4CD;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  border: 2px solid #3C1D33;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.hero__cta:hover,
+.hero__cta:focus-visible {
+  background-color: transparent;
+  color: #DDD4CD;
+  border-color: #DDD4CD;
+  outline: none;
+}
+
+/* ─── Scroll down indicator ──────────────────────────────────────────── */
+.hero__scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #DDD4CD;
+  font-size: 1.5rem;
+  text-decoration: none;
+  opacity: 0.7;
+  animation: bounce 2s infinite;
+  z-index: 1;
+  transition: opacity 0.2s;
+}
+
+.hero__scroll-indicator:hover,
+.hero__scroll-indicator:focus-visible {
+  opacity: 1;
+  outline: none;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Fallback for mobile where fixed attachment may not work */
+  .hero {
+    background-attachment: scroll;
+  }
+}

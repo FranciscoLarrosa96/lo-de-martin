@@ -1,3 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
-
 @import "tailwindcss";
+
+/* ─── Design Tokens ────────────────────────────────────────────────── */
+@theme {
+  --color-primary:      #3C1D33;
+  --color-primary-dark: #2a1224;
+  --color-dark:         #070709;
+  --color-cream:        #DDD4CD;
+  --color-cream-light:  #F0EBE6;
+  --color-cream-muted:  #9e948d;
+  --font-family-sans:   'Open Sans', sans-serif;
+}
+
+/* ─── Global Reset & Base ───────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #070709;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+/* ─── Custom Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: #DDD4CD; }
+::-webkit-scrollbar-thumb { background: #3C1D33; border-radius: 3px; }
+
+/* ─── Section headings helper classes ──────────────────────────────── */
+.section-label {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  color: #3C1D33;
+  font-size: 1.25rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #070709;
+}
+
+/* ─── LightGallery overrides ────────────────────────────────────────── */
+.lg-backdrop { background-color: #070709; }
+
+/* ─── AOS extra smoothness ──────────────────────────────────────────── */
+[data-aos] { will-change: transform, opacity; }

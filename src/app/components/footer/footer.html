@@ -1,0 +1,68 @@
+<footer class="site-footer" role="contentinfo">
+
+  <div class="footer-inner">
+
+    <!-- Logo & tagline -->
+    <div class="footer-brand">
+      <button (click)="scrollTop()" class="footer-logo" aria-label="Volver al inicio">
+        Lo de Martín
+      </button>
+      <p class="footer-tagline">Cocina &amp; Buenos Momentos · Tandil</p>
+    </div>
+
+    <!-- Nav links -->
+    <nav class="footer-nav" aria-label="Navegación del pie de página">
+      <ul role="list">
+        @for (link of navLinks; track link.id) {
+          <li>
+            <button (click)="scrollTo(link.id)" class="footer-nav__link">
+              {{ link.label }}
+            </button>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <!-- Social -->
+    <div class="footer-social">
+      <a
+        href="https://facebook.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="footer-social__link"
+        aria-label="Visitar nuestro Facebook"
+      >
+        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+      </a>
+      <a
+        href="https://instagram.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="footer-social__link"
+        aria-label="Visitar nuestro Instagram"
+      >
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a
+        href="tel:+5492494123456"
+        class="footer-social__link"
+        aria-label="Llamar al restaurante"
+      >
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Divider -->
+  <div class="footer-divider" aria-hidden="true"></div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <p>&copy; {{ currentYear }} Lo de Martín. Todos los derechos reservados.</p>
+    <button (click)="scrollTop()" class="footer-scroll-top" aria-label="Volver arriba">
+      <i class="fa-solid fa-angle-up" aria-hidden="true"></i>
+    </button>
+  </div>
+
+</footer>
