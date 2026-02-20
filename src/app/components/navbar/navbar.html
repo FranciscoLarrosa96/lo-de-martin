@@ -1,15 +1,3 @@
-<!-- Floating Reservar Button -->
-<a
-  (click)="scrollTo('contacto')"
-  role="button"
-  tabindex="0"
-  aria-label="Hacer una reserva"
-  class="reservar-btn"
-  (keydown.enter)="scrollTo('contacto')"
->
-  <span>Reservar</span>
-</a>
-
 <!-- ══════════════  HEADER  ══════════════ -->
 <header [class.scrolled]="scrolled()" class="site-header" role="banner">
 
@@ -27,12 +15,12 @@
     </a>
 
     <nav class="topbar__social" aria-label="Redes sociales">
-      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+      <a href="https://www.facebook.com/lodemartintandil/?locale=es_LA" target="_blank" rel="noopener noreferrer"
          aria-label="Visitar nuestro Facebook">
         <i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook
       </a>
       <span class="separator" aria-hidden="true">|</span>
-      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+      <a href="https://www.instagram.com/lodemartintandil/?hl=es" target="_blank" rel="noopener noreferrer"
          aria-label="Visitar nuestro Instagram">
         <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram
       </a>
@@ -69,14 +57,15 @@
     <!-- Mobile hamburger -->
     <button
       class="hamburger"
+      [class.hamburger--open]="menuOpen()"
       (click)="toggleMenu()"
       [attr.aria-expanded]="menuOpen()"
       aria-controls="mobile-menu"
       aria-label="Abrir menú de navegación"
     >
-      <span class="hamburger__line" [class.open]="menuOpen()"></span>
-      <span class="hamburger__line" [class.open]="menuOpen()"></span>
-      <span class="hamburger__line" [class.open]="menuOpen()"></span>
+      <span class="hamburger__bar"></span>
+      <span class="hamburger__bar"></span>
+      <span class="hamburger__bar"></span>
     </button>
   </nav>
 
