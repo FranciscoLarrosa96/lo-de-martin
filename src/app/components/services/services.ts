@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
 interface Service {
   icon: string;
@@ -14,6 +14,11 @@ interface Service {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ServicesComponent {
+  protected readonly activeCard = signal<number | null>(null);
+
+  protected toggleCard(index: number): void {
+    this.activeCard.update((current) => (current === index ? null : index));
+  }
   protected readonly services: Service[] = [
     {
       icon: 'fa-solid fa-truck-fast',

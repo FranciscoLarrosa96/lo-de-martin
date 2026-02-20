@@ -17,11 +17,13 @@
       @for (service of services; track service.title; let i = $index) {
         <article
           class="service-card"
+          [class.is-active]="activeCard() === i"
           [style.background-image]="'url(assets/img/ldm-desk-10.avif)'"
           role="listitem"
           [attr.data-aos]="'fade-up'"
           [attr.data-aos-delay]="i * 150"
           [attr.aria-label]="service.title"
+          (click)="toggleCard(i)"
         >
           <!-- Front face (visible by default) -->
           <div class="service-card__front" aria-hidden="false">

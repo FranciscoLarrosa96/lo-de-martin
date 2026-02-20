@@ -61,7 +61,8 @@
   z-index: 0;
 }
 
-.service-card:hover::before {
+.service-card:hover::before,
+.service-card.is-active::before {
   background: rgba(60, 29, 51, 0.80);
 }
 
@@ -80,7 +81,8 @@
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.service-card:hover .service-card__front {
+.service-card:hover .service-card__front,
+.service-card.is-active .service-card__front {
   opacity: 0;
   transform: scale(0.7) translateY(-20px);
 }
@@ -128,7 +130,8 @@
   transition: background-color 0.2s, border-color 0.2s;
 }
 
-.service-card:hover .service-card__btn {
+.service-card:hover .service-card__btn,
+.service-card.is-active .service-card__btn {
   background-color: rgba(60, 29, 51, 0.5);
   border-color: #3C1D33;
 }
@@ -147,7 +150,8 @@
   transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
-.service-card:hover .service-card__back {
+.service-card:hover .service-card__back,
+.service-card.is-active .service-card__back {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
