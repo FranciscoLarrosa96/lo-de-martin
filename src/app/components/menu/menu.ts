@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 
 type MenuTab = 'almuerzo' | 'cena';
 
@@ -119,9 +119,9 @@ export class MenuComponent {
     },
   ];
 
-  protected get activeItems(): MenuItem[] {
-    return this.menuSections.find((s) => s.tab === this.activeTab())?.items ?? [];
-  }
+  protected readonly activeItems = computed(
+    () => this.menuSections.find(s => s.tab === this.activeTab())?.items ?? []
+  );
 
   protected setTab(tab: MenuTab): void {
     this.activeTab.set(tab);
