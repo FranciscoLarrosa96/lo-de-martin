@@ -1,4 +1,4 @@
-<section id="servicios" class="services-section" aria-label="Servicios">
+<section id="servicios" class="services-section" [style.background-image]="'url(assets/img/ldm-desk-9.avif)'" aria-label="Servicios">
   <div class="services-section__overlay" aria-hidden="true"></div>
 
   <div class="services-inner">
@@ -17,6 +17,7 @@
       @for (service of services; track service.title; let i = $index) {
         <article
           class="service-card"
+          [style.background-image]="'url(assets/img/ldm-desk-10.avif)'"
           role="listitem"
           [attr.data-aos]="'fade-up'"
           [attr.data-aos-delay]="i * 150"

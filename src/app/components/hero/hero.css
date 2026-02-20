@@ -1,7 +1,6 @@
 .hero {
   position: relative;
   min-height: 100vh;
-  background-image: url('/assets/img/hero-img.avif');
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;

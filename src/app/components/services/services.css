@@ -1,7 +1,6 @@
 /* ─── Section ───────────────────────────────────────────────────────── */
 .services-section {
   position: relative;
-  background-image: url('/assets/img/ldm-desk-9.avif');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -47,7 +46,6 @@
   position: relative;
   overflow: hidden;
   background-color: #131320;
-  background-image: url('/assets/img/ldm-desk-10.avif');
   background-size: cover;
   background-position: center;
   min-height: 380px;

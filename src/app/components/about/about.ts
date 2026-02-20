@@ -26,11 +26,11 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   protected currentIndex = signal(0);
 
   protected readonly carouselImages: GalleryImage[] = [
-    { src: '/assets/img/ldm-desk-2.avif', alt: 'Platos del restaurante Lo de Martín' },
-    { src: '/assets/img/ldm-desk-3.avif', alt: 'Ambiente del restaurante Lo de Martín' },
-    { src: '/assets/img/ldm-desk-4.avif', alt: 'Cocina auténtica en Lo de Martín' },
-    { src: '/assets/img/ldm-desk-5.avif', alt: 'Experiencia gastronómica en Lo de Martín' },
-    { src: '/assets/img/ldm-desk-6.avif', alt: 'Sabores únicos en Lo de Martín' },
+    { src: 'assets/img/ldm-desk-2.avif', alt: 'Platos del restaurante Lo de Martín' },
+    { src: 'assets/img/ldm-desk-3.avif', alt: 'Ambiente del restaurante Lo de Martín' },
+    { src: 'assets/img/ldm-desk-4.avif', alt: 'Cocina auténtica en Lo de Martín' },
+    { src: 'assets/img/ldm-desk-5.avif', alt: 'Experiencia gastronómica en Lo de Martín' },
+    { src: 'assets/img/ldm-desk-6.avif', alt: 'Sabores únicos en Lo de Martín' },
   ];
 
   ngAfterViewInit(): void {
