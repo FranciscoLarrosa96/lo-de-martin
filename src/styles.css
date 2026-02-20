@@ -47,8 +47,9 @@ body {
   color: #070709;
 }
 
-/* ─── LightGallery overrides ────────────────────────────────────────── */
-.lg-backdrop { background-color: #070709; }
+/* ─── GLightbox overrides ───────────────────────────────────────────── */
+.glightbox-clean .gslide-description { background: rgba(7, 7, 9, 0.85); }
+.glightbox-clean .gnext, .glightbox-clean .gprev { background-color: #3C1D33; }
 
 /* ─── AOS extra smoothness ──────────────────────────────────────────── */
 [data-aos] { will-change: transform, opacity; }

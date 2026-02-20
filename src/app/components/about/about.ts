@@ -2,15 +2,11 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
   OnDestroy,
-  ViewChild,
   signal,
 } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-import lightGallery from 'lightgallery';
-import lgZoom from 'lightgallery/plugins/zoom';
-import lgThumbnail from 'lightgallery/plugins/thumbnail';
+import GLightbox from 'glightbox';
 
 interface GalleryImage {
   src: string;
@@ -25,9 +21,7 @@ interface GalleryImage {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('lgContainer') lgContainerRef!: ElementRef<HTMLElement>;
-
-  private lgInstance: ReturnType<typeof lightGallery> | null = null;
+  private glInstance: ReturnType<typeof GLightbox> | null = null;
 
   protected currentIndex = signal(0);
 
@@ -39,28 +33,25 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
     { src: '/assets/img/ldm-desk-6.avif', alt: 'Sabores únicos en Lo de Martín' },
   ];
 
-  protected readonly galleryDynamicEl = this.carouselImages.map((img) => ({
-    src: img.src,
-    thumb: img.src,
-    alt: img.alt,
-  }));
-
   ngAfterViewInit(): void {
-    this.lgInstance = lightGallery(this.lgContainerRef.nativeElement, {
-      dynamic: true,
-      dynamicEl: this.galleryDynamicEl,
-      plugins: [lgZoom, lgThumbnail],
-      speed: 500,
-      licenseKey: '0000-0000-0000-0000',
-    });
+    this.glInstance = GLightbox({
+      elements: this.carouselImages.map((img) => ({ href: img.src, alt: img.alt, type: 'image' })),
+      loop: true,
+      touchNavigation: true,
+      keyboardNavigation: true,
+      openEffect: 'fade',
+      closeEffect: 'fade',
+      slideEffect: 'slide',
+    } as Parameters<typeof GLightbox>[0]);
   }
 
   ngOnDestroy(): void {
-    this.lgInstance?.destroy();
+    this.glInstance?.destroy();
   }
 
   protected openGallery(index: number): void {
-    this.lgInstance?.openGallery(index);
+    if (!this.glInstance) return;
+    this.glInstance.openAt(index);
   }
 
   protected prev(): void {
