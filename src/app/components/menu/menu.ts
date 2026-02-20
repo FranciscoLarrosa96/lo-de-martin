@@ -120,7 +120,7 @@ export class MenuComponent {
   ];
 
   protected readonly activeItems = computed(
-    () => this.menuSections.find(s => s.tab === this.activeTab())?.items ?? []
+    () => this.menuSections.find((s) => s.tab === this.activeTab())?.items ?? [],
   );
 
   protected setTab(tab: MenuTab): void {
