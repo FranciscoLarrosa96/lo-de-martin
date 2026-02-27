@@ -2,23 +2,59 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <title>Tenedor Libre Premium · Gastronomía sin límites</title>
+
+    <!-- ─── Primary SEO ────────────────────────────────────────────── -->
+    <title>Lo de Martín — Restaurante en Tandil | Cocina de Autor</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Tenedor Libre Premium – Una experiencia gastronómica cinematográfica. Más de 80 platos de autor, ambiente de lujo, reservas online."
+      content="Lo de Martín, restaurante de cocina de autor en Tandil, Buenos Aires. Reservas online, menú de almuerzo y cena, catering y eventos privados. Las Heras 560, Tandil."
     />
-    <meta name="theme-color" content="#08205e" />
-    <meta property="og:title" content="Tenedor Libre Premium" />
-    <meta
-      property="og:description"
-      content="Gastronomía sin límites en un ambiente de lujo contemporáneo."
-    />
-    <meta property="og:type" content="restaurant" />
+    <meta name="keywords" content="restaurante Tandil, Lo de Martín, cocina de autor, almuerzo Tandil, cena Tandil, catering Tandil, eventos Tandil, reservas restaurante" />
+    <meta name="author" content="Lo de Martín" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <meta name="theme-color" content="#3C1D33" />
+
+    <!-- ─── Geo ────────────────────────────────────────────────────── -->
+    <meta name="geo.region" content="AR-B" />
+    <meta name="geo.placename" content="Tandil, Buenos Aires, Argentina" />
+    <meta name="geo.position" content="-37.3217;-59.1332" />
+    <meta name="ICBM" content="-37.3217, -59.1332" />
+
+    <!-- ─── Open Graph ─────────────────────────────────────────────── -->
+    <meta property="og:type"        content="restaurant" />
+    <meta property="og:site_name"   content="Lo de Martín" />
+    <meta property="og:locale"      content="es_AR" />
+    <meta property="og:title"       content="Lo de Martín — Restaurante en Tandil | Cocina de Autor" />
+    <meta property="og:description" content="Lo de Martín, restaurante de cocina de autor en Tandil. Reservas online, menú de almuerzo y cena, catering y eventos privados." />
+    <meta property="og:url"         content="https://lodemartintandil.com.ar/" />
+    <meta property="og:image"       content="https://lodemartintandil.com.ar/assets/img/hero-img.avif" />
+    <meta property="og:image:alt"   content="Interior del restaurante Lo de Martín en Tandil" />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- ─── Twitter Card ───────────────────────────────────────────── -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Lo de Martín — Restaurante en Tandil | Cocina de Autor" />
+    <meta name="twitter:description" content="Lo de Martín, restaurante de cocina de autor en Tandil. Reservas online, menú de almuerzo y cena, catering y eventos privados." />
+    <meta name="twitter:image"       content="https://lodemartintandil.com.ar/assets/img/hero-img.avif" />
+    <meta name="twitter:image:alt"   content="Interior del restaurante Lo de Martín en Tandil" />
+
+    <!-- ─── Canonical ──────────────────────────────────────────────── -->
+    <link rel="canonical" href="https://lodemartintandil.com.ar/" />
+
     <!-- ─── Favicon ────────────────────────────────────────────────── -->
-    <link rel="icon" type="image/x-icon" href="assets/icons/favicon_16.png" />
-    <link rel="icon" type="image/x-icon" href="assets/icons/favicon_32.png" />
+    <link rel="icon"             type="image/x-icon" href="favicon.ico" />
+    <link rel="icon"             type="image/png" sizes="16x16" href="assets/icons/favicon_16.png" />
+    <link rel="icon"             type="image/png" sizes="32x32" href="assets/icons/favicon_32.png" />
+    <link rel="apple-touch-icon" href="assets/icons/favicon_32.png" />
+
+    <!-- ─── PWA Manifest ───────────────────────────────────────────── -->
+    <link rel="manifest" href="manifest.webmanifest" />
+
+    <!-- ─── Preload LCP image ──────────────────────────────────────── -->
+    <link rel="preload" as="image" href="assets/img/hero-img.avif" type="image/avif" fetchpriority="high" />
 
     <!-- ─── Fonts ──────────────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,9 +63,66 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600&display=swap"
       rel="stylesheet"
     />
-    <!-- Preconnect for fonts performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- ─── JSON-LD Structured Data ────────────────────────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "@id": "https://lodemartintandil.com.ar/#restaurant",
+      "name": "Lo de Martín",
+      "alternateName": "Restaurante Lo de Martín Tandil",
+      "description": "Restaurante de cocina de autor en el corazón de Tandil. Almuerzo, cena, catering y salón privado para eventos.",
+      "url": "https://lodemartintandil.com.ar/",
+      "telephone": "+54-249-421-0572",
+      "email": "contacto@lodemartintandil.com.ar",
+      "image": "https://lodemartintandil.com.ar/assets/img/hero-img.avif",
+      "logo": "https://lodemartintandil.com.ar/assets/icons/martin_logo.svg",
+      "priceRange": "$$$",
+      "servesCuisine": ["Cocina de Autor", "Gastronomía Argentina", "Cocina Mediterránea"],
+      "hasMenu": "https://lodemartintandil.com.ar/#menu",
+      "acceptsReservations": true,
+      "currenciesAccepted": "ARS",
+      "paymentAccepted": "Cash, Credit Card, Debit Card",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Las Heras 560",
+        "addressLocality": "Tandil",
+        "addressRegion": "Buenos Aires",
+        "postalCode": "7000",
+        "addressCountry": "AR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -37.3217,
+        "longitude": -59.1332
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Tuesday","Wednesday","Thursday"],
+          "opens": "12:00",
+          "closes": "15:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "20:00",
+          "closes": "23:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday","Sunday"],
+          "opens": "12:00",
+          "closes": "15:30"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/lodemartintandil/",
+        "https://www.instagram.com/lodemartintandil/"
+      ]
+    }
+    </script>
   </head>
   <body>
     <app-root></app-root>

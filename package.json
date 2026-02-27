@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "prod": "ng build --configuration production --base-href \"/lo-de-martin/\"",
-    "deploy": "npm run prod && npx angular-cli-ghpages --dir=dist/lo-de-martin/browser"
+    "deploy": "npm run prod && npx angular-cli-ghpages --dir=dist/tenedor-libre/browser"
   },
   "prettier": {
     "printWidth": 100,

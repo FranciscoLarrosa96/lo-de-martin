@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Bloquear archivos irrelevantes
+Disallow: /assets/icons/favicon_16.png
+Disallow: /assets/icons/favicon_32.png
+
+Sitemap: https://lodemartintandil.com.ar/sitemap.xml
