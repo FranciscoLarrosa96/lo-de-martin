@@ -1,0 +1,32 @@
+{
+  "name": "Lo de Martín — Restaurante en Tandil",
+  "short_name": "Lo de Martín",
+  "description": "Restaurante de cocina de autor en Tandil, Buenos Aires. Reservas, menú y más.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070709",
+  "theme_color": "#3C1D33",
+  "lang": "es-AR",
+  "orientation": "portrait-primary",
+  "categories": ["food", "lifestyle"],
+  "icons": [
+    {
+      "src": "assets/icons/favicon_32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/img/hero-img.avif",
+      "sizes": "1280x720",
+      "type": "image/avif",
+      "label": "Pantalla principal de Lo de Martín"
+    }
+  ]
+}
