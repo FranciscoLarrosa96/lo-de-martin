@@ -1,0 +1,53 @@
+<nav class="navbar" [class.scrolled]="scrolled()">
+  <div class="navbar__inner container">
+
+    <!-- Logo -->
+    <a class="navbar__logo" href="#hero" (click)="scrollTo('#hero')">
+      <span class="navbar__logo-icon">🍴</span>
+      <div class="navbar__logo-text">
+        <span class="navbar__logo-name">Tenedor</span>
+        <span class="navbar__logo-tagline">Libre Premium</span>
+      </div>
+    </a>
+
+    <!-- Desktop Nav -->
+    <ul class="navbar__links" role="list">
+      @for (link of navLinks; track link.href) {
+        <li>
+          <a class="navbar__link" (click)="scrollTo(link.href)">{{ link.label }}</a>
+        </li>
+      }
+    </ul>
+
+    <!-- CTA Button -->
+    <a class="navbar__cta btn-primary" (click)="scrollTo('#reservas')">
+      Reservar Mesa
+    </a>
+
+    <!-- Mobile Hamburger -->
+    <button
+      class="navbar__burger"
+      [class.is-open]="mobileOpen()"
+      (click)="toggleMobile()"
+      aria-label="Abrir menú"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  @if (mobileOpen()) {
+    <div class="navbar__mobile" role="dialog" aria-label="Menú móvil">
+      <ul role="list">
+        @for (link of navLinks; track link.href) {
+          <li>
+            <a class="navbar__mobile-link" (click)="scrollTo(link.href)">{{ link.label }}</a>
+          </li>
+        }
+      </ul>
+      <a class="btn-primary navbar__mobile-cta" (click)="scrollTo('#reservas')">Reservar Mesa</a>
+    </div>
+  }
+</nav>

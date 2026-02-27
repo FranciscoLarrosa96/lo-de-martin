@@ -1,0 +1,91 @@
+// ============================================
+// MIXINS - TENEDOR LIBRE PREMIUM
+// ============================================
+@use 'variables' as *;
+
+// -- Responsive Breakpoints --
+@mixin sm  { @media (min-width: #{$bp-sm})  { @content; } }
+@mixin md  { @media (min-width: #{$bp-md})  { @content; } }
+@mixin lg  { @media (min-width: #{$bp-lg})  { @content; } }
+@mixin xl  { @media (min-width: #{$bp-xl})  { @content; } }
+@mixin xxl { @media (min-width: #{$bp-xxl}) { @content; } }
+
+// -- Glassmorphism --
+@mixin glass($blur: 16px, $bg: rgba(8, 32, 94, 0.4), $border: rgba(255,255,255,0.08)) {
+  background: $bg;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid $border;
+}
+
+// -- Flex Center --
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// -- Flex Between --
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// -- Absolute Fill --
+@mixin absolute-fill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// -- Gradient Text --
+@mixin gradient-text($gradient: linear-gradient(135deg, #fff 0%, #db3445 100%)) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// -- Section Padding --
+@mixin section-padding {
+  padding: clamp(4rem, 10vw, 8rem) 0;
+}
+
+// -- Hover Lift --
+@mixin hover-lift($shadow: $shadow-lg) {
+  transition: $transition-base;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow;
+  }
+}
+
+// -- Focus Ring --
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $color-red;
+    outline-offset: 3px;
+    border-radius: $radius-sm;
+  }
+}
+
+// -- Line Clamp --
+@mixin line-clamp($lines: 3) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// -- Overlay --
+@mixin overlay($gradient: $gradient-overlay) {
+  &::after {
+    content: '';
+    @include absolute-fill;
+    background: $gradient;
+    z-index: $z-overlay;
+    pointer-events: none;
+  }
+}

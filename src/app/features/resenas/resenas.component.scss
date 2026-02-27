@@ -1,0 +1,149 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.resenas {
+  @include section-padding;
+  background: $color-dark-2;
+  overflow: hidden;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  &__stars { color: gold; font-size: 1.4rem; letter-spacing: 0.1em; }
+
+  &__score {
+    font-family: $font-display;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $color-white;
+  }
+
+  &__total {
+    font-size: 0.82rem;
+    color: rgba($color-white, 0.5);
+  }
+
+  // Marquee wrapper with fade masks
+  &__track-wrap {
+    position: relative;
+    overflow: hidden;
+    padding: 0.5rem 0;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(to right, $color-dark-2, transparent);
+    }
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, $color-dark-2, transparent);
+    }
+
+    &--spacing { margin-top: 1rem; }
+  }
+
+  // Tracks - CSS animation for true infinite scroll
+  &__track {
+    display: flex;
+    gap: 1.25rem;
+    width: max-content;
+    will-change: transform;
+
+    &--1 { animation: marquee 40s linear infinite; }
+    &--2 { animation: marquee-reverse 38s linear infinite; }
+
+    &:hover { animation-play-state: paused; }
+  }
+
+  // Review Card
+  &__card {
+    flex-shrink: 0;
+    width: 320px;
+    padding: 1.5rem;
+    border-radius: $radius-lg;
+    @include glass(12px, rgba($color-blue, 0.25));
+    border: 1px solid rgba($color-white, 0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: $transition-base;
+
+    &:hover {
+      @include glass(12px, rgba($color-blue, 0.4));
+      border-color: rgba($color-white, 0.12);
+      transform: translateY(-3px);
+    }
+
+    &-top {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    &-stars {
+      color: gold;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  &__avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: $gradient-brand;
+    @include flex-center;
+    font-family: $font-display;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $color-white;
+    flex-shrink: 0;
+  }
+
+  &__name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $color-white;
+  }
+
+  &__google {
+    width: 20px; height: 20px;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  &__comment {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: rgba($color-white, 0.7);
+    @include line-clamp(4);
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}

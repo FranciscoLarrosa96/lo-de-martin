@@ -1,0 +1,72 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.diferencias {
+  @include section-padding;
+  position: relative;
+  overflow: hidden;
+
+  &__bg {
+    @include absolute-fill;
+    background: $color-dark-2;
+    background-image:
+      radial-gradient(ellipse 60% 40% at 20% 80%, rgba($color-blue, 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 80% 20%, rgba($color-red, 0.1) 0%, transparent 60%);
+    z-index: 0;
+  }
+
+  .container { position: relative; z-index: 1; }
+
+  &__header { text-align: center; margin-bottom: 3.5rem; }
+  &__subtitle { max-width: 540px; margin: 1rem auto 0; }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+
+    @include sm { grid-template-columns: 1fr 1fr; }
+    @include lg { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  &__item {
+    padding: 2rem 1.75rem;
+    border-radius: $radius-lg;
+    @include glass(10px, rgba($color-dark, 0.5));
+    border: 1px solid rgba($color-white, 0.06);
+    transition: $transition-base;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+
+    &:hover {
+      border-color: rgba($color-red, 0.25);
+      background: rgba($color-blue, 0.15);
+      transform: translateY(-5px);
+      box-shadow: $shadow-md;
+
+      .diferencias__item-icon {
+        transform: scale(1.15) rotate(-5deg);
+      }
+    }
+
+    &-icon {
+      font-size: 2.5rem;
+      line-height: 1;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    &-title {
+      font-family: $font-display;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: $color-white;
+    }
+
+    &-desc {
+      font-size: 0.85rem;
+      color: rgba($color-white, 0.58);
+      line-height: 1.65;
+    }
+  }
+}

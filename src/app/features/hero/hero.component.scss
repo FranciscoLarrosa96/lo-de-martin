@@ -1,0 +1,254 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 620px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  // Background Slides
+  &__slides {
+    @include absolute-fill;
+    z-index: 0;
+  }
+
+  &__slide {
+    @include absolute-fill;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.08);
+    transition: opacity 1.2s cubic-bezier(0.4,0,0.2,1),
+                transform 6s cubic-bezier(0.4,0,0.2,1);
+    will-change: transform, opacity;
+
+    &.is-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  // Overlays
+  &__overlay {
+    @include absolute-fill;
+    z-index: 1;
+    background: linear-gradient(
+      135deg,
+      rgba($color-dark,0.88) 0%,
+      rgba($color-blue,0.65) 40%,
+      rgba($color-red,0.25) 70%,
+      rgba($color-dark,0.85) 100%
+    );
+  }
+
+  &__spotlight {
+    @include absolute-fill;
+    z-index: 2;
+    background: radial-gradient(
+      ellipse 70% 60% at 30% 50%,
+      rgba($color-blue-light, 0.12) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  // Content
+  &__content {
+    position: relative;
+    z-index: 3;
+    max-width: 760px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s 0.3s ease, transform 0.9s 0.3s ease;
+
+    &.is-loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: $color-red;
+    margin-bottom: 1.5rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba($color-red, 0.3);
+    border-radius: $radius-full;
+    @include glass(8px, rgba($color-red, 0.08));
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 700;
+    line-height: 1;
+    color: $color-white;
+    margin-bottom: 1.25rem;
+
+    &-regular { display: block; }
+    &-italic {
+      font-style: italic;
+      @include gradient-text(linear-gradient(135deg, $color-white 0%, rgba($color-red,0.9) 100%));
+    }
+  }
+
+  &__subtitle {
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+    font-weight: 300;
+    color: rgba($color-white, 0.72);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  // Stats
+  &__stats {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+
+    &-number {
+      font-family: $font-display;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: $color-white;
+    }
+    &-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: rgba($color-white, 0.5);
+      text-transform: uppercase;
+    }
+  }
+
+  &__stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba($color-white, 0.15);
+  }
+
+  // Indicators
+  &__indicators {
+    position: absolute;
+    bottom: 7rem;
+    right: clamp(1.5rem, 4vw, 3rem);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba($color-white, 0.3);
+    transition: $transition-base;
+
+    &.is-active {
+      background: $color-red;
+      transform: scale(1.4);
+      box-shadow: 0 0 8px rgba($color-red, 0.6);
+    }
+    &:hover { background: rgba($color-white, 0.7); }
+  }
+
+  // Scroll indicator
+  &__scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba($color-white, 0.5);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: $transition-fast;
+    animation: bounce 2s ease-in-out infinite;
+
+    &:hover { color: rgba($color-white, 0.9); }
+  }
+
+  &__scroll-mouse {
+    width: 24px; height: 38px;
+    border: 2px solid rgba($color-white, 0.35);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+  }
+
+  &__scroll-wheel {
+    width: 4px; height: 8px;
+    background: rgba($color-white, 0.5);
+    border-radius: 2px;
+    animation: scrollWheel 1.8s ease-in-out infinite;
+  }
+}
+
+// Ghost button
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.6rem;
+  background: transparent;
+  color: $color-white;
+  font-size: 0.88rem;
+  font-weight: 500;
+  border: 1.5px solid rgba($color-white, 0.3);
+  border-radius: $radius-full;
+  cursor: pointer;
+  transition: $transition-base;
+
+  &:hover {
+    background: rgba($color-white, 0.08);
+    border-color: rgba($color-white, 0.6);
+  }
+}
+
+.btn-primary--large {
+  padding: 0.9rem 2rem;
+  font-size: 0.95rem;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+@keyframes scrollWheel {
+  0%   { transform: translateY(0); opacity: 1; }
+  80%  { transform: translateY(8px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}

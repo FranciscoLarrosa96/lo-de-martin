@@ -1,0 +1,86 @@
+<section class="hero" id="hero">
+  <!-- Background Slides -->
+  <div class="hero__slides">
+    @for (slide of slides; track slide.image; let i = $index) {
+      <div
+        class="hero__slide"
+        [class.is-active]="currentSlide() === i"
+        [style.background-image]="'url(' + slide.image + ')'"
+      ></div>
+    }
+  </div>
+
+  <!-- Overlay -->
+  <div class="hero__overlay"></div>
+
+  <!-- Particles / ambient light -->
+  <div class="hero__spotlight"></div>
+
+  <!-- Content -->
+  <div class="hero__content container" [class.is-loaded]="loaded()">
+    <div class="hero__label">
+      <span>🍴</span>
+      <span>Tenedor Libre Premium</span>
+    </div>
+
+    <h1 class="hero__title">
+      <span class="hero__title-regular">{{ slides[currentSlide()].title }}</span>
+      <br>
+      <em class="hero__title-italic">{{ slides[currentSlide()].titleItalic }}</em>
+    </h1>
+
+    <p class="hero__subtitle">{{ slides[currentSlide()].subtitle }}</p>
+
+    <div class="hero__actions">
+      <button class="btn-primary btn-primary--large" (click)="scrollDown()">
+        Reservar Mesa
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+      <button class="btn-ghost" (click)="scrollDown()">
+        Ver Menú
+      </button>
+    </div>
+
+    <!-- Stats -->
+    <div class="hero__stats">
+      <div class="hero__stat">
+        <span class="hero__stat-number">+80</span>
+        <span class="hero__stat-label">Platos en rotación</span>
+      </div>
+      <div class="hero__stat-divider"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-number">15</span>
+        <span class="hero__stat-label">Años de experiencia</span>
+      </div>
+      <div class="hero__stat-divider"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-number">5★</span>
+        <span class="hero__stat-label">Rating promedio</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide Indicators -->
+  <div class="hero__indicators">
+    @for (slide of slides; track slide.image; let i = $index) {
+      <button
+        class="hero__dot"
+        [class.is-active]="currentSlide() === i"
+        (click)="goToSlide(i)"
+        [attr.aria-label]="'Ir a slide ' + (i+1)"
+      ></button>
+    }
+  </div>
+
+  <!-- Scroll Indicator -->
+  @if (scrollIndicator()) {
+    <button class="hero__scroll" (click)="scrollDown()" aria-label="Bajar">
+      <div class="hero__scroll-mouse">
+        <div class="hero__scroll-wheel"></div>
+      </div>
+      <span>Scroll</span>
+    </button>
+  }
+</section>

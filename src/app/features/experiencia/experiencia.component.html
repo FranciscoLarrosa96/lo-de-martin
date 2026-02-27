@@ -1,0 +1,50 @@
+<section class="experiencia" id="experiencia">
+  <div class="experiencia__spotlight"></div>
+  <div class="container">
+    <div class="experiencia__grid">
+
+      <!-- Left: Image -->
+      <div class="experiencia__image-wrap" data-aos="fade-right" data-aos-duration="1000">
+        <div class="experiencia__image-frame">
+          <img
+            src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=900&q=85&auto=format&fit=crop"
+            alt="Chef preparando plato premium"
+            class="experiencia__image"
+            loading="lazy"
+          >
+          <div class="experiencia__image-badge">
+            <span class="badge-number">15</span>
+            <span class="badge-text">años de excelencia</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Content -->
+      <div class="experiencia__content">
+        <p class="section-label" data-aos="fade-up">La Experiencia</p>
+        <h2 class="section-title experiencia__title" data-aos="fade-up" data-aos-delay="100">
+          No es una simple cena.
+          <em>Es un ritual.</em>
+        </h2>
+        <p class="section-subtitle experiencia__desc" data-aos="fade-up" data-aos-delay="200">
+          En Tenedor Libre Premium reimaginamos el concepto de comer bien.
+          Cada mesa es un teatro de sabores, cada visita una experiencia sensorial
+          diseñada para quedar grabada en tu memoria.
+        </p>
+
+        <!-- Features Grid -->
+        <div class="experiencia__features" data-aos="fade-up" data-aos-delay="300">
+          @for (feat of features; track feat.title) {
+            <div class="experiencia__feat">
+              <span class="experiencia__feat-icon">{{ feat.icon }}</span>
+              <div>
+                <h4 class="experiencia__feat-title">{{ feat.title }}</h4>
+                <p class="experiencia__feat-desc">{{ feat.desc }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

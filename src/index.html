@@ -2,173 +2,36 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
+    <title>Tenedor Libre Premium · Gastronomía sin límites</title>
     <base href="/" />
-
-    <!-- ══════════════════════════════════════════════════════════════
-         CAMBIA "https://lodemartintandil.com.ar" por el dominio real
-         antes de hacer deploy a producción.
-    ══════════════════════════════════════════════════════════════════ -->
-
-    <!-- ─── Primarios ──────────────────────────────────────────────── -->
-    <title>Lo de Martín — Restaurante en Tandil | Cocina de Autor</title>
-    <meta name="description" content="Lo de Martín, restaurante de cocina de autor en Tandil, Buenos Aires. Reservas online, menú almuerzo y cena, catering y eventos. Las Heras 560, Tandil." />
-    <meta name="keywords" content="restaurante tandil, lo de martin, cocina de autor tandil, restaurante cocina argentina, cena tandil, almuerzo tandil, catering tandil, reservas tandil" />
-    <meta name="author" content="Lo de Martín" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#3C1D33" />
-
-    <!-- ─── Canonical ──────────────────────────────────────────────── -->
-    <link rel="canonical" href="https://lodemartintandil.com.ar/" />
-
-    <!-- ─── Open Graph (Facebook / WhatsApp / LinkedIn) ───────────── -->
-    <meta property="og:type"        content="restaurant" />
-    <meta property="og:site_name"   content="Lo de Martín" />
-    <meta property="og:title"       content="Lo de Martín — Restaurante en Tandil | Cocina de Autor" />
-    <meta property="og:description" content="Cocina de autor en el corazón de Tandil. Reservá tu mesa, descubrí nuestro menú y viví una experiencia gastronómica única." />
-    <meta property="og:url"         content="https://lodemartintandil.com.ar/" />
-    <meta property="og:image"       content="https://lodemartintandil.com.ar/assets/img/hero-img.avif" />
-    <meta property="og:image:alt"   content="Interior del restaurante Lo de Martín en Tandil" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height"content="630" />
-    <meta property="og:locale"      content="es_AR" />
-
-    <!-- ─── Twitter Card ──────────────────────────────────────────── -->
-    <meta name="twitter:card"        content="summary_large_image" />
-    <meta name="twitter:title"       content="Lo de Martín — Restaurante en Tandil" />
-    <meta name="twitter:description" content="Cocina de autor en el corazón de Tandil. Reservá tu mesa en línea." />
-    <meta name="twitter:image"       content="https://lodemartintandil.com.ar/assets/img/hero-img.avif" />
-    <meta name="twitter:image:alt"   content="Interior del restaurante Lo de Martín en Tandil" />
-
-    <!-- ─── Geo ────────────────────────────────────────────────────── -->
-    <meta name="geo.region"      content="AR-B" />
-    <meta name="geo.placename"   content="Tandil, Buenos Aires, Argentina" />
-    <meta name="geo.position"    content="-37.317994;-59.145739" />
-    <meta name="ICBM"            content="-37.317994, -59.145739" />
-
-    <!-- ─── PWA / App ──────────────────────────────────────────────── -->
-    <link rel="manifest" href="manifest.webmanifest" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Lo de Martín" />
-    <link rel="apple-touch-icon" href="icons/icon-192.png" />
-
+    <meta
+      name="description"
+      content="Tenedor Libre Premium – Una experiencia gastronómica cinematográfica. Más de 80 platos de autor, ambiente de lujo, reservas online."
+    />
+    <meta name="theme-color" content="#08205e" />
+    <meta property="og:title" content="Tenedor Libre Premium" />
+    <meta
+      property="og:description"
+      content="Gastronomía sin límites en un ambiente de lujo contemporáneo."
+    />
+    <meta property="og:type" content="restaurant" />
     <!-- ─── Favicon ────────────────────────────────────────────────── -->
-     <link rel="icon" type="image/x-icon" href="assets/icons/favicon_16.png" />
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon_16.png" />
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon_32.png" />
 
     <!-- ─── Fonts ──────────────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600&display=swap" rel="stylesheet" />
-
-    <!-- ─── FontAwesome ────────────────────────────────────────────── -->
-    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
-    <link rel="dns-prefetch" href="https://kit.fontawesome.com" />
-
-    <!-- ─── Preload hero image (LCP) ──────────────────────────────── -->
-    <link rel="preload" as="image" href="/assets/img/hero-img.avif" fetchpriority="high" />
-
-    <!-- ─── JSON-LD Structured Data ───────────────────────────────── -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Restaurant",
-      "name": "Lo de Martín",
-      "description": "Restaurante de cocina de autor en Tandil, Buenos Aires. Experiencias gastronómicas únicas, catering y eventos privados.",
-      "url": "https://lodemartintandil.com.ar",
-      "telephone": "+5492494123456",
-      "email": "contacto@lodemartintandil.com.ar",
-      "image": [
-        "https://lodemartintandil.com.ar/assets/img/hero-img.avif",
-        "https://lodemartintandil.com.ar/assets/img/ldm-desk-1.avif"
-      ],
-      "logo": "https://lodemartintandil.com.ar/icons/icon-192.png",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Las Heras 560",
-        "addressLocality": "Tandil",
-        "addressRegion": "Buenos Aires",
-        "postalCode": "7000",
-        "addressCountry": "AR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -37.3179944,
-        "longitude": -59.145739
-      },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"],
-          "opens": "20:00",
-          "closes": "00:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Friday", "Saturday"],
-          "opens": "20:00",
-          "closes": "01:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Sunday"],
-          "opens": "12:30",
-          "closes": "16:00"
-        }
-      ],
-      "servesCuisine": ["Argentine", "Contemporary"],
-      "priceRange": "$$",
-      "currenciesAccepted": "ARS",
-      "paymentAccepted": "Cash, Credit Card, Debit Card",
-      "hasMap": "https://maps.google.com/?q=Lo+de+Martín,+Las+Heras+560,+Tandil",
-      "sameAs": [
-        "https://www.facebook.com/lodemartintandil",
-        "https://www.instagram.com/lodemartintandil",
-        "https://maps.app.goo.gl/lodemartintandil"
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.6",
-        "reviewCount": "829",
-        "bestRating": "5"
-      },
-      "potentialAction": {
-        "@type": "ReserveAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://lodemartintandil.com.ar/#contacto",
-          "actionPlatform": [
-            "http://schema.org/DesktopWebPlatform",
-            "http://schema.org/MobileWebPlatform"
-          ]
-        },
-        "result": {
-          "@type": "Reservation",
-          "name": "Reserva de mesa"
-        }
-      }
-    }
-    </script>
-
-    <!-- ─── BreadcrumbList ─────────────────────────────────────────── -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Inicio",    "item": "https://lodemartintandil.com.ar/#inicio" },
-        { "@type": "ListItem", "position": 2, "name": "Nosotros",  "item": "https://lodemartintandil.com.ar/#nosotros" },
-        { "@type": "ListItem", "position": 3, "name": "Menú",      "item": "https://lodemartintandil.com.ar/#menu" },
-        { "@type": "ListItem", "position": 4, "name": "Servicios", "item": "https://lodemartintandil.com.ar/#servicios" },
-        { "@type": "ListItem", "position": 5, "name": "Contacto",  "item": "https://lodemartintandil.com.ar/#contacto" }
-      ]
-    }
-    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Preconnect for fonts performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   <body>
     <app-root></app-root>
-    <script src="https://kit.fontawesome.com/cb0353dbc0.js" crossorigin="anonymous"></script>
   </body>
 </html>

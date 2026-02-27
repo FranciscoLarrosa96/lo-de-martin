@@ -1,0 +1,58 @@
+<section class="galeria" id="galeria">
+  <div class="container">
+    <div class="galeria__header">
+      <p class="section-label" data-aos="fade-up">Galería</p>
+      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">El arte en cada plato</h2>
+      <p class="section-subtitle galeria__subtitle" data-aos="fade-up" data-aos-delay="200">
+        Una selección visual de nuestras creaciones. Cada imagen es una invitación.
+      </p>
+
+      <!-- Filters -->
+      <div class="galeria__filters" data-aos="fade-up" data-aos-delay="300">
+        @for (cat of categories; track cat) {
+          <button
+            class="galeria__filter"
+            [class.is-active]="activeCategory() === cat"
+            (click)="setCategory(cat)"
+          >{{ cat }}</button>
+        }
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="galeria__grid" [class.is-transitioning]="animating()" data-aos="fade-up" data-aos-delay="100">
+      @for (dish of filteredDishes(); track dish.id; let i = $index) {
+        <div class="galeria__item" [style.animation-delay]="(i * 60) + 'ms'" (click)="openModal(dish)">
+          <div class="galeria__item-img-wrap">
+            <img [src]="dish.image" [alt]="dish.name" loading="lazy" class="galeria__item-img">
+            <div class="galeria__item-overlay">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+            </div>
+          </div>
+          <div class="galeria__item-info">
+            <span class="galeria__item-cat">{{ dish.category }}</span>
+            <h4 class="galeria__item-name">{{ dish.name }}</h4>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Modal -->
+  @if (selectedDish()) {
+    <div class="galeria__backdrop" [@backdropAnimation] (click)="closeModal()">
+      <div class="galeria__modal" [@modalAnimation] (click)="$event.stopPropagation()">
+        <button class="galeria__modal-close" (click)="closeModal()" aria-label="Cerrar">✕</button>
+        <div class="galeria__modal-img-wrap">
+          <img [src]="selectedDish()!.image" [alt]="selectedDish()!.name" class="galeria__modal-img">
+        </div>
+        <div class="galeria__modal-body">
+          <span class="galeria__item-cat">{{ selectedDish()!.category }}</span>
+          <h3 class="galeria__modal-title">{{ selectedDish()!.name }}</h3>
+          <p class="galeria__modal-desc">{{ selectedDish()!.description }}</p>
+          <a class="btn-primary" href="#reservas" (click)="closeModal()">Reservar y disfrutar</a>
+        </div>
+      </div>
+    </div>
+  }
+</section>

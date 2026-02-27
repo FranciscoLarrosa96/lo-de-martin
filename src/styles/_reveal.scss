@@ -1,0 +1,19 @@
+// ============================================
+// SCROLL REVEAL GLOBAL STYLES
+// ============================================
+
+.reveal-hidden {
+  opacity: 0 !important;
+  transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.reveal-up    { transform: translateY(40px); }
+.reveal-left  { transform: translateX(-50px); }
+.reveal-right { transform: translateX(50px); }
+.reveal-scale { transform: scale(0.92); }
+.reveal-fade  {}  /* only opacity */
+
+.revealed {
+  opacity: 1 !important;
+  transform: none !important;
+}
