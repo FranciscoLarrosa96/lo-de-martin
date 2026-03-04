@@ -21,7 +21,7 @@ interface DishItem {
 export class GaleriaComponent {
   selectedDish = signal<DishItem | null>(null);
 
-  readonly categories = ['Todos', 'Entradas', 'Principales', 'Postres', 'Bebidas'];
+  readonly categories = ['Todos', 'Entradas', 'Principales', 'Postres'];
   activeCategory = signal('Todos');
   animating = signal(false);
 
@@ -76,13 +76,6 @@ export class GaleriaComponent {
       description: 'Suave panna cotta con coulis de frutos rojos y menta fresca.',
     },
     {
-      id: 8,
-      name: 'Cóctel Signature',
-      category: 'Bebidas',
-      image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&q=80',
-      description: 'Mezcla exclusiva de la casa con notas de maracuyá y jengibre.',
-    },
-    {
       id: 9,
       name: 'Sashimi Selection',
       category: 'Entradas',
@@ -102,13 +95,6 @@ export class GaleriaComponent {
       category: 'Postres',
       image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80',
       description: 'Mousse de chocolate 72% con avellanas caramelizadas y flor de sal.',
-    },
-    {
-      id: 12,
-      name: 'Gin Tónic Premium',
-      category: 'Bebidas',
-      image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&q=80',
-      description: 'Gin botánico con tónica artesanal, pepino, enebro y limón.',
     },
   ];
 
