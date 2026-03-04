@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss'
+  styleUrl: './hero.component.scss',
 })
 export class HeroComponent implements OnInit, OnDestroy {
   loaded = signal(false);
@@ -15,23 +15,23 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   readonly slides = [
     {
-      image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&q=85&auto=format&fit=crop',
+      image: 'assets/img/hall.avif',
       title: 'Una Mesa',
       titleItalic: 'para el placer',
-      subtitle: 'Delicias sin límite en un ambiente de lujo contemporáneo'
+      subtitle: 'Delicias sin límite en un ambiente de lujo contemporáneo',
     },
     {
-      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=85&auto=format&fit=crop',
+      image: 'assets/img/hero2.avif',
       title: 'Sabores',
       titleItalic: 'que perduran',
-      subtitle: 'Cocina de autor en formato libre, para vivir sin restricciones'
+      subtitle: 'Cocina de autor en formato libre, para vivir sin restricciones',
     },
     {
-      image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&q=85&auto=format&fit=crop',
+      image: 'assets/img/hero.avif',
       title: 'El ritual',
       titleItalic: 'del buen comer',
-      subtitle: 'Cada plato es una historia. Cada visita, un recuerdo'
-    }
+      subtitle: 'Cada plato es una historia. Cada visita, un recuerdo',
+    },
   ];
 
   currentSlide = signal(0);
@@ -41,7 +41,7 @@ export class HeroComponent implements OnInit, OnDestroy {
     setTimeout(() => this.loaded.set(true), 300);
 
     this.slideInterval = setInterval(() => {
-      this.currentSlide.update(i => (i + 1) % this.slides.length);
+      this.currentSlide.update((i) => (i + 1) % this.slides.length);
     }, 5500);
 
     const onScroll = () => {
