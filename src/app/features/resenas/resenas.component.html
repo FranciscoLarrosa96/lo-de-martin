@@ -4,9 +4,12 @@
       <p class="section-label" data-aos="fade-up">Reseñas</p>
       <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Lo que dicen nuestros clientes</h2>
       <div class="resenas__rating" data-aos="fade-up" data-aos-delay="200">
-        <div class="resenas__stars">★★★★★</div>
-        <span class="resenas__score">5.0</span>
-        <span class="resenas__total">basado en 480+ reseñas de Google</span>
+        <div class="resenas__stars">
+          <span class="resenas__stars-empty">☆☆☆☆☆</span>
+          <span class="resenas__stars-filled">★★★★★</span>
+        </div>
+        <span class="resenas__score">4.6</span>
+        <span class="resenas__total">basado en 4.836+ reseñas de Google</span>
       </div>
     </div>
   </div>
@@ -32,6 +35,9 @@
             </svg>
           </div>
           <p class="resenas__comment">{{ review.comment }}</p>
+          @if (review.time) {
+            <span class="resenas__time">{{ review.time }}</span>
+          }
         </div>
       }
     </div>
@@ -52,6 +58,9 @@
             </div>
           </div>
           <p class="resenas__comment">{{ review.comment }}</p>
+          @if (review.time) {
+            <span class="resenas__time">{{ review.time }}</span>
+          }
         </div>
       }
     </div>
