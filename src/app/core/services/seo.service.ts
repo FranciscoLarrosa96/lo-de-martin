@@ -11,7 +11,7 @@ export interface SeoConfig {
   type?: string;
 }
 
-const SITE_URL = 'https://lodemartintandil.com.ar';
+const SITE_URL = 'https://lodemartin.com.ar';
 
 @Injectable({ providedIn: 'root' })
 export class SeoService {
@@ -27,7 +27,7 @@ export class SeoService {
         'Lo de Martín, restaurante de cocina de autor en Tandil, Buenos Aires. ' +
         'Reservas online, menú almuerzo y cena, catering y eventos. Las Heras 560, Tandil.',
       url: SITE_URL + '/',
-      image: SITE_URL + '/assets/img/preview.jpg',
+      image: SITE_URL + '/assets/img/preview.avif',
       imageAlt: 'Interior del restaurante Lo de Martín en Tandil',
       type: 'restaurant',
     });

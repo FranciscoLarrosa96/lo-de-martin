@@ -23,7 +23,7 @@
   ],
   "screenshots": [
     {
-      "src": "assets/img/hero-img.avif",
+      "src": "assets/img/preview.avif",
       "sizes": "1280x720",
       "type": "image/avif",
       "label": "Pantalla principal de Lo de Martín"
